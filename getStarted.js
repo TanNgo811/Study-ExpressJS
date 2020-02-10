@@ -6,8 +6,9 @@ const pug = require('pug');
 app.set('view engine', 'pug');
 app.set('views', './views')
 
-
 const bodyParser = require('body-parser')
+
+const shortid = require('shortid');
 
 // middleware
 app.use(bodyParser.json()) // for parsing application/json
@@ -79,17 +80,20 @@ app.get('/users/create', function(req, res){
 //     res.redirect('/users');
 // });
 
-app.get('/users/:id', function(req, res){
-    var id = parseInt(req.params.id);
+app.get('/users/:id', function(req, res, next){
+    var id = req.params.id;
     
     var user = db.get('users').find({ id: id }).value();
     
     res.render('users/view', {
         user: user
     });
+
+    res.status(404).send("Sorry can't find that!");
 });
 
 app.post('/users/create', function(req, res){
+    req.body.id = shortid.generate();
     db.get('users')
         .push(req.body)
         .write()

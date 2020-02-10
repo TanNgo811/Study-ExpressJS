@@ -1,36 +1,19 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Tan"
+      "name": "Tien Tan",
+      "phone": "",
+      "id": "b1om-hzm"
     },
     {
-      "id": 2,
-      "name": "Tuan"
+      "name": "Manh Cuong",
+      "phone": "",
+      "id": "ShpN_hW-"
     },
     {
-      "id": 3,
-      "name": "Hong"
-    },
-    {
-      "id": 4,
-      "name": "Phat"
-    },
-    {
-      "id": 5,
-      "name": "Thang"
-    },
-    {
-      "name": "Cuong",
-      "phone": "123"
-    },
-    {
-      "name": "Minh Thong",
-      "phone": ""
-    },
-    {
-      "name": "The Quan",
-      "phone": ""
+      "name": "Toan",
+      "phone": "",
+      "id": "7rOCPupF"
     }
   ]
 }
