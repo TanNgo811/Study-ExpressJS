@@ -35,6 +35,24 @@ module.exports.userPage = function(req, res, next){
 
 module.exports.postUserInfo = function(req, res){
     req.body.id = shortid.generate();
+    
+    var errors = [];
+    if(!req.body.name){
+        errors.push('Name is required!');
+    }
+    
+    if(!req.body.phone){
+        errors.push('Phone is required!');
+    }
+
+    if(errors.length > 0){ //falsy || truthy
+        res.render('users/create', {
+            errors: errors,
+            values: req.body
+        });
+        return ;
+    }
+    
     db.get('users')
         .push(req.body)
         .write()
