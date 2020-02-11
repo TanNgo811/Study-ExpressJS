@@ -1,23 +1,26 @@
-h1 Users
+extends ../layout/common.pug
+block content
 
-a(href="/users/create") New
+    h1 Users
 
-br
+    a(href="/users/create") New
 
-form(action="/users/search", method = 'GET')
-    input(type="text", name='q', id = 'searchItem')
-    button Search
-ul
-    each user in users
-        li
-            span= user.name
-            span &nbsp;
-            a(href='/users/' + user.id) View
+    br
+
+    form(action="/users/search", method = 'GET', class="d-inline-flex p-2")
+        input(type="text", name='q', id = 'searchItem' class = 'form-control ')
+        button(class = 'btn btn-primary ml-10') Search
+    ul
+        each user in users
+            li
+                span= user.name
+                span &nbsp;
+                a(href='/users/' + user.id) View
 
 
-script.
-    var searchInput = document.getElementById('searchItem')
-    searchInput.addEventListener('change', function(){
-        sessionStorage.setItem('draft', searchInput.value);
-    })
-    searchInput.value  = sessionStorage.getItem('draft')
+    script.
+        var searchInput = document.getElementById('searchItem')
+        searchInput.addEventListener('change', function(){
+            sessionStorage.setItem('draft', searchInput.value);
+        })
+        searchInput.value  = sessionStorage.getItem('draft')
