@@ -4,6 +4,8 @@ var router = express.Router();
 var db = require('../db');
 
 var controller = require('../controller/users.controller');
+
+var validate = require('../validate/users.validate');
 // app.get('/users', function(req, res){
 //     res.render('users/index',{
 //         users: users
@@ -35,6 +37,6 @@ router.get('/create', controller.create);
 
 router.get('/:id', controller.userPage);
 
-router.post('/create', controller.postUserInfo);
+router.post('/create', validate.postUserInfo, controller.postUserInfo);
 
 module.exports = router;
