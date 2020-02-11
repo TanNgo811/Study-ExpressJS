@@ -11,6 +11,7 @@ app.set('views', './views')
 
 var userRoute = require('./routes/users.route');
 var authRoute = require('./routes/auth.route');
+var productRoute = require('./routes/products.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
 
@@ -31,5 +32,6 @@ app.get('/', function(req, res){
 
 app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
+app.use('/products', productRoute);
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
