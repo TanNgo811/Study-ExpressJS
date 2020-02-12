@@ -640,5 +640,14 @@
       "image": "https://robohash.org/quamestsequi.png?size=200x200&set=set1",
       "description": "justo pellentesque viverra pede ac diam cras pellentesque volutpat dui"
     }
+  ],
+  "sessions": [
+    {
+      "id": "18JvCRM4",
+      "cart": {
+        "73fb2ea0-35fa-4c1e-9f7d-39c1d53b780c": 2,
+        "3e798fb0-42dd-4242-809c-1e70aaded8cc": 1
+      }
+    }
   ]
 }
