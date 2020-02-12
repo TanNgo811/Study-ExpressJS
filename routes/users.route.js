@@ -1,5 +1,7 @@
 const express = require('express')
 var router = express.Router();
+var multer  = require('multer')
+var upload = multer({ dest: './public/uploads/' })
 
 var db = require('../db');
 
@@ -22,6 +24,10 @@ router.get('/create', controller.create);
 
 router.get('/:id', controller.userPage);
 
-router.post('/create', validate.postUserInfo, controller.postUserInfo);
+router.post('/create',
+    upload.single('avatar'),
+    validate.postUserInfo,
+    controller.postUserInfo
+);
 
 module.exports = router;

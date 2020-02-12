@@ -36,7 +36,7 @@ module.exports.userPage = function(req, res, next){
 
 module.exports.postUserInfo = function(req, res){
     req.body.id = shortid.generate();
-    
+    req.body.avatar = req.file.path.split('\\').slice(1).join('\\');
     db.get('users')
         .push(req.body)
         .write()
