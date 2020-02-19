@@ -14,6 +14,9 @@ const pug = require('pug');
 app.set('view engine', 'pug');
 app.set('views', './views')
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/express-demo', {useNewUrlParser: true});
+
 var userRoute = require('./routes/users.route');
 var authRoute = require('./routes/auth.route');
 var productRoute = require('./routes/products.route');
